@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 1rem;
+    /* Light mode – light gray */
+    --background: 0.96 0.005 240;
+    --foreground: 0.15 0.01 240;
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.01 240;
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.01 240;
+    --primary: 0.72 0.15 185;
+    --primary-foreground: 0.98 0 0;
+    --secondary: 0.93 0.01 240;
+    --secondary-foreground: 0.15 0.01 240;
+    --muted: 0.93 0.01 240;
+    --muted-foreground: 0.5 0.01 240;
+    --accent: 0.68 0.12 210;
+    --accent-foreground: 0.98 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.88 0.01 240;
+    --input: 0.88 0.01 240;
+    --ring: 0.72 0.15 185;
+
+    /* teal accent */
+    --teal: 0.72 0.15 185;
+    --teal-light: 0.82 0.12 185;
+    --cyan: 0.68 0.14 220;
+    --card-surface: 1 0 0;
+    --card-border: 0.88 0.01 240;
+  }
+
+  .dark {
+    /* Page background: near-black charcoal */
+    --background: 0.13 0.01 250;
+    --foreground: 0.94 0.005 240;
+    --card: 0.17 0.01 250;
+    --card-foreground: 0.94 0.005 240;
+    --popover: 0.2 0.01 250;
+    --popover-foreground: 0.94 0.005 240;
+    --primary: 0.72 0.15 185;
+    --primary-foreground: 0.1 0.01 240;
+    --secondary: 0.22 0.015 250;
+    --secondary-foreground: 0.94 0.005 240;
+    --muted: 0.22 0.015 250;
+    --muted-foreground: 0.56 0.01 240;
+    --accent: 0.68 0.14 220;
+    --accent-foreground: 0.1 0.01 240;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.28 0.015 250;
+    --input: 0.28 0.015 250;
+    --ring: 0.72 0.15 185;
+
+    --teal: 0.75 0.17 185;
+    --teal-light: 0.85 0.12 185;
+    --cyan: 0.72 0.15 220;
+    --card-surface: 0.17 0.01 250;
+    --card-border: 0.28 0.015 250;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Custom teal/cyan gradient utility */
+.gradient-teal {
+  background: linear-gradient(
+    135deg,
+    oklch(0.72 0.17 185),
+    oklch(0.68 0.15 220)
+  );
+}
+
+.dark .gradient-teal {
+  background: linear-gradient(
+    135deg,
+    oklch(0.75 0.18 185),
+    oklch(0.72 0.16 220)
+  );
+}
+
+.glow-teal {
+  box-shadow: 0 0 24px oklch(0.72 0.17 185 / 0.25), 0 0 48px
+    oklch(0.72 0.17 185 / 0.1);
+}
+
+.dark .glow-teal {
+  box-shadow: 0 0 24px oklch(0.75 0.18 185 / 0.3), 0 0 48px
+    oklch(0.75 0.18 185 / 0.12);
+}
+
+.teal-border {
+  border-color: oklch(0.72 0.17 185 / 0.4);
+}
+
+.dark .teal-border {
+  border-color: oklch(0.75 0.18 185 / 0.35);
+}
+
+.teal-glow-border {
+  border: 2px dashed oklch(0.72 0.17 185 / 0.45);
+  box-shadow: inset 0 0 32px oklch(0.72 0.17 185 / 0.06);
+}
+
+.dark .teal-glow-border {
+  border: 2px dashed oklch(0.75 0.18 185 / 0.4);
+  box-shadow: inset 0 0 32px oklch(0.75 0.18 185 / 0.08);
+}
+
+/* Glow shadow */
+.shadow-glow {
+  box-shadow: 0 0 20px oklch(0.72 0.17 185 / 0.35), 0 4px 12px
+    rgba(0, 0, 0, 0.2);
+}
+.dark .shadow-glow {
+  box-shadow: 0 0 24px oklch(0.75 0.18 185 / 0.45), 0 4px 12px
+    rgba(0, 0, 0, 0.35);
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+  background-size: 200% 100%;
+}
